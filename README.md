@@ -41,19 +41,8 @@ para servir de base para os calculos de dimencionamento de um sistema fotovoltai
  - [Developer Network NREL](https://developer.nrel.gov/)
 
 ## Prerequisites
-1. Must be connected to a MySQL database on port: 3306
-
-
-2. If use docker, run:
-
-    2.1 Create .jar
-    ```shell script
-    ./gradlew bootjar 
-    ```
-    2.2 Run docker-compose command
-    ```shell script
-    docker-compose up 
-    ```
+1. Must be connected to a MySQL database on port: 3306.
+2. If you prefer, a container can be used.
 
 ## Install 
 1. In the terminal, clone the project:
@@ -72,9 +61,20 @@ cd ~\photovoltaic-system-design
 gradle bootrun
 ```
 
-To run the tests:
+4. To run the tests:
 ```shell script
 gradle clean test
 ```
+
+5. To use docker-compose:
+
+   5.1 Create .jar
+    ```shell script
+    ./gradlew bootjar 
+    ```
+   5.2 Run docker-compose command
+    ```shell script
+    docker-compose up 
+    ```
 
 ## How To Use
