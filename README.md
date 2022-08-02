@@ -41,6 +41,19 @@ para servir de base para os calculos de dimencionamento de um sistema fotovoltai
  - [Developer Network NREL](https://developer.nrel.gov/)
 
 ## Prerequisites
+1. Must be connected to a MySQL database on port: 3306
+
+
+2. If use docker, run:
+
+    2.1 Create .jar
+    ```shell script
+    ./gradlew bootjar 
+    ```
+    2.2 Run docker-compose command
+    ```shell script
+    docker-compose up 
+    ```
 
 ## Install 
 1. In the terminal, clone the project:
