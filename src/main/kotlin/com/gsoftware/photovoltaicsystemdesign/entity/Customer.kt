@@ -11,6 +11,15 @@ import javax.persistence.OneToMany
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotNull
 
+/**
+ * Entidade que representa o cliente
+ *
+ * @param id: ID do cliete
+ * @param name: Nome do cliente
+ * @param cpf: CPF do cliente
+ * @param email: E-mail do cliente
+ * @param isActive: Identifica se o cliente está ativo
+ */
 @Entity
 class Customer(
     @Id

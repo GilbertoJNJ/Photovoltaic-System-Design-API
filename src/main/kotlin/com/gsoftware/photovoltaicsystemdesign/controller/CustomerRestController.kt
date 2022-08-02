@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController
 import java.net.URI
 import javax.validation.Valid
 
+/**
+ * Controller para cadastro de clientes
+ */
 @RestController
 @RequestMapping("/api/v1/customer")
 class CustomerRestController(var customerService: ICustomerService) {
