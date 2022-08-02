@@ -6,7 +6,7 @@ spring:
       ddl-auto: update
     show-sql: false
   datasource:
-    url: jdbc:mysql://localhost:3306/db_photovoltaic-system
+    url: jdbc:mysql://mysqldb:3306/db_photovoltaic-system
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
