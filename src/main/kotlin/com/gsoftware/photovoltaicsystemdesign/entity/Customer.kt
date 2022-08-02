@@ -1,5 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.entity
 
+import org.hibernate.validator.constraints.br.CPF
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -8,28 +9,26 @@ import javax.persistence.Id
 import javax.persistence.ManyToOne
 import javax.persistence.OneToMany
 import javax.validation.constraints.Email
+import javax.validation.constraints.NotNull
 
 @Entity
 class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    val id: Long,
 
     @Column
-    val name: String? = null,
+    @NotNull
+    val name: String,
 
     @Column
-    val cpf: String? = null,
+    @CPF
+    val cpf: String,
 
     @Column
-    val email: String? = null,
-
-    @OneToMany
-    val phones: List<Phone>? = null,
-
-    @ManyToOne
-    val address: Address? = null,
+    @Email
+    val email: String,
 
     @Column
-    val isActive: Boolean? = null
+    val isActive: Boolean? = false,
 )
