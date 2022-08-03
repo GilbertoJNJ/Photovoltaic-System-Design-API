@@ -1,7 +1,10 @@
 package com.gsoftware.photovoltaicsystemdesign.service.impl
 
 import com.gsoftware.photovoltaicsystemdesign.entity.Customer
+import com.gsoftware.photovoltaicsystemdesign.repository.IAddressRepository
 import com.gsoftware.photovoltaicsystemdesign.repository.ICustomerRepository
+import com.gsoftware.photovoltaicsystemdesign.repository.ILocaleRepository
+import com.gsoftware.photovoltaicsystemdesign.repository.IPhoneRepository
 import com.gsoftware.photovoltaicsystemdesign.service.ICustomerService
 import org.springframework.stereotype.Service
 
@@ -10,7 +13,10 @@ import org.springframework.stereotype.Service
  */
 @Service
 class CustomerServiceImpl(
-    var customerRepository: ICustomerRepository
+    var customerRepository: ICustomerRepository,
+    var phoneRepository: IPhoneRepository,
+    var addressRepository: IAddressRepository,
+    var localeRepository: ILocaleRepository
 ): ICustomerService {
 
     /**
@@ -19,6 +25,11 @@ class CustomerServiceImpl(
      * @param customer: Dados do cliente
      */
     override fun create(customer: Customer) {
+        customer.phone?.stream()?.forEach { phone -> phoneRepository.save(phone) }
+        customer.address?.stream()?.forEach { address ->
+            localeRepository.save(address.locale!!)
+            addressRepository.save(address)
+        }
         customerRepository.save(customer)
     }
 
@@ -49,7 +60,12 @@ class CustomerServiceImpl(
      */
     override fun update(id: Long, customer: Customer) {
         val customerdb = customerRepository.findById(id)
-        if(customerdb.isPresent) {
+        if (customerdb.isPresent) {
+            customer.phone?.stream()?.forEach { phone -> phoneRepository.save(phone) }
+            customer.address?.stream()?.forEach { address ->
+                localeRepository.save(address.locale!!)
+                addressRepository.save(address)
+            }
             customerRepository.save(customer)
         }
     }

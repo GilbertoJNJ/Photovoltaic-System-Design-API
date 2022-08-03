@@ -6,7 +6,9 @@ import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.ManyToOne
+import javax.persistence.ManyToMany
+import javax.persistence.Enumerated
+import javax.persistence.EnumType
 import javax.persistence.OneToMany
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotNull
@@ -14,11 +16,11 @@ import javax.validation.constraints.NotNull
 /**
  * Entidade que representa o cliente
  *
- * @param id: ID do cliete
- * @param name: Nome do cliente
- * @param cpf: CPF do cliente
- * @param email: E-mail do cliente
- * @param isActive: Identifica se o cliente está ativo
+ * @param id ID do cliete
+ * @param name Nome do cliente
+ * @param cpf CPF do cliente
+ * @param email E-mail do cliente
+ * @param status Identifica se o cliente está ativo
  */
 @Entity
 class Customer(
@@ -38,6 +40,18 @@ class Customer(
     @Email
     val email: String,
 
+    @OneToMany
+    val phone: List<Phone>? = null,
+
+    @ManyToMany
+    val address: List<Address>? = null,
+
     @Column
-    val isActive: Boolean? = false,
-)
+    @Enumerated(EnumType.ORDINAL)
+    var status: Status? = null,
+) {
+    enum class Status {
+        ACTIVE,
+        INACTIVE
+    }
+}
