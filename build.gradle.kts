@@ -6,6 +6,7 @@ plugins {
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
 	kotlin("plugin.jpa") version "1.6.21"
+	kotlin("kapt") version "1.5.20"
 }
 
 group = "com.gsoftware"
@@ -27,7 +28,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 	implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
-	implementation("org.mapstruct:mapstruct:1.5.1.Final")
+	implementation("org.mapstruct:mapstruct:1.5.2.Final")
+	kapt("org.mapstruct:mapstruct-processor:1.5.2.Final")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("mysql:mysql-connector-java")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -36,6 +38,12 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
+}
+
+kapt {
+	arguments {
+		arg("mapstruct.defaultComponentModel", "spring")
 	}
 }
 
