@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
 import javax.persistence.OneToOne
-import javax.validation.constraints.NotNull
+import javax.persistence.FetchType
+import javax.persistence.CascadeType
 
 /**
  * Entidade que representa o endereço do cliente
@@ -25,33 +26,29 @@ import javax.validation.constraints.NotNull
 class Address(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    val id: Long? = null,
 
     @Column
-    @NotNull
-    val street: String,
+    var street: String? = null,
 
     @Column
-    val number: String? = null,
+    var number: String? = null,
 
     @Column
-    val district: String? = null,
+    var district: String? = null,
 
     @Column
-    @NotNull
-    val city: String,
+    var city: String? = null,
 
     @Column
-    @NotNull
-    val state: String,
+    var state: String? = null,
 
     @Column
-    val cep: String? = null,
+    var cep: String? = null,
 
     @Column
-    @NotNull
-    val country: String,
+    var country: String? = null,
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val locale: Locale? = null
 )

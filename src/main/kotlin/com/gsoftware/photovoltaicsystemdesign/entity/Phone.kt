@@ -17,11 +17,11 @@ import javax.persistence.Id
 class Phone(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column
-    val ddd: String? = null,
+    var ddd: String? = null,
 
     @Column
-    val number: String? = null
+    var number: String? = null
 )
