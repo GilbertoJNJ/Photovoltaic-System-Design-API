@@ -1,6 +1,8 @@
 package com.gsoftware.photovoltaicsystemdesign.controller
 
+import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
 import com.gsoftware.photovoltaicsystemdesign.entity.Customer
+import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
 import com.gsoftware.photovoltaicsystemdesign.service.ICustomerService
 import org.springframework.http.ResponseEntity
 import org.springframework.http.ResponseEntity.*
@@ -24,31 +26,31 @@ class CustomerRestController(var customerService: ICustomerService) {
 
 
     @PostMapping
-    fun createCustomer(@RequestBody @Valid customer: Customer): ResponseEntity<Customer> {
-        customerService.create(customer)
-        return created(URI.create(customer.name)).body(customer)
+    fun createCustomer(@RequestBody @Valid customerForm: CustomerForm): ResponseEntity<CustomerDTO> {
+        val customerDTO = customerService.create(customerForm)
+        return created(URI.create(customerDTO.name)).body(customerDTO)
     }
 
     @GetMapping
-    fun findAllCustomers(): ResponseEntity<Iterable<Customer>> {
-        val customers = customerService.listAll()
-        return ok().body(customers)
+    fun findAllCustomers(): ResponseEntity<List<CustomerDTO>> {
+        val customersDTO = customerService.listAll()
+        return ok().body(customersDTO)
     }
 
     @GetMapping("/{id}")
-    fun findCustomerById(@RequestParam id: Long): ResponseEntity<Customer>? {
-        val customer = customerService.findById(id)
-        return ok().body(customer)
+    fun findCustomerById(@RequestParam id: Long): ResponseEntity<CustomerDTO> {
+        val customerDTO = customerService.findById(id)
+        return ok().body(customerDTO)
     }
 
     @PutMapping("/{id}")
-    fun updateCustomer(@RequestParam id: Long, @RequestBody @Valid customer: Customer): ResponseEntity<Customer> {
-        customerService.update(id,customer)
-        return ok().body(customer)
+    fun updateCustomer(@RequestParam id: Long, @RequestBody @Valid customer: Customer): ResponseEntity<CustomerDTO> {
+        val customerDTO = customerService.update(id,customer)
+        return ok().body(customerDTO)
     }
 
     @DeleteMapping("/{id}")
-    fun deleteCustomer(@RequestParam id: Long): ResponseEntity<Customer> {
+    fun deleteCustomer(@RequestParam id: Long): ResponseEntity<Any> {
         customerService.delete(id)
         return noContent().build()
     }

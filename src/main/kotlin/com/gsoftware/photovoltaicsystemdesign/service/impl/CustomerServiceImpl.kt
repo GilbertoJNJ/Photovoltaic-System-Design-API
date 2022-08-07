@@ -1,36 +1,32 @@
 package com.gsoftware.photovoltaicsystemdesign.service.impl
 
+import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
 import com.gsoftware.photovoltaicsystemdesign.entity.Customer
-import com.gsoftware.photovoltaicsystemdesign.repository.IAddressRepository
+import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
+import com.gsoftware.photovoltaicsystemdesign.mapper.CustomerMapper
 import com.gsoftware.photovoltaicsystemdesign.repository.ICustomerRepository
-import com.gsoftware.photovoltaicsystemdesign.repository.ILocaleRepository
-import com.gsoftware.photovoltaicsystemdesign.repository.IPhoneRepository
 import com.gsoftware.photovoltaicsystemdesign.service.ICustomerService
 import org.springframework.stereotype.Service
+import java.util.stream.Collectors
 
 /**
  * Implementação do serviço de cadastro de clientes
  */
 @Service
 class CustomerServiceImpl(
-    var customerRepository: ICustomerRepository,
-    var phoneRepository: IPhoneRepository,
-    var addressRepository: IAddressRepository,
-    var localeRepository: ILocaleRepository
+    val customerRepository: ICustomerRepository,
+    val customerMapper: CustomerMapper
 ): ICustomerService {
 
     /**
      * Cadastra cliente
      *
-     * @param customer: Dados do cliente
+     * @param customerForm: Dados do cliente
      */
-    override fun create(customer: Customer) {
-        customer.phone?.stream()?.forEach { phone -> phoneRepository.save(phone) }
-        customer.address?.stream()?.forEach { address ->
-            localeRepository.save(address.locale!!)
-            addressRepository.save(address)
-        }
-        customerRepository.save(customer)
+    override fun create(customerForm: CustomerForm): CustomerDTO {
+        val customer = customerMapper.toCustomer(customerForm)
+        val savedCustomer = customerRepository.save(customer)
+        return customerMapper.toCustomerDTO(savedCustomer)
     }
 
     /**
@@ -38,8 +34,11 @@ class CustomerServiceImpl(
      *
      * @return Lista de todos os clientes
      */
-    override fun listAll(): Iterable<Customer> {
-        return customerRepository.findAll()
+    override fun listAll(): List<CustomerDTO> {
+        val findAll = customerRepository.findAll()
+        return findAll.stream()
+            .map { customer -> customerMapper.toCustomerDTO(customer) }
+            .collect(Collectors.toList())
     }
 
     /**
@@ -48,8 +47,10 @@ class CustomerServiceImpl(
      * @param id: ID do cliente
      * @return Cliente na base de dados
      */
-    override fun findById(id: Long): Customer {
-        return customerRepository.findById(id).get()
+    override fun findById(id: Long): CustomerDTO {
+        val customer = customerRepository.findById(id).get()
+
+        return customerMapper.toCustomerDTO(customer)
     }
 
     /**
@@ -58,16 +59,11 @@ class CustomerServiceImpl(
      * @param id: ID do cliente
      * @param customer: Dados do cliente
      */
-    override fun update(id: Long, customer: Customer) {
-        val customerdb = customerRepository.findById(id)
-        if (customerdb.isPresent) {
-            customer.phone?.stream()?.forEach { phone -> phoneRepository.save(phone) }
-            customer.address?.stream()?.forEach { address ->
-                localeRepository.save(address.locale!!)
-                addressRepository.save(address)
-            }
-            customerRepository.save(customer)
-        }
+    override fun update(id: Long, customer: Customer): CustomerDTO {
+        customerRepository.findById(id).get()
+        val customerUpdated = customerRepository.save(customer)
+
+        return customerMapper.toCustomerDTO(customerUpdated)
     }
 
     /**
@@ -76,6 +72,7 @@ class CustomerServiceImpl(
      * @param id: ID do cliente
      */
     override fun delete(id: Long) {
-        customerRepository.deleteById(id)
+        val customerToDelete = customerRepository.findById(id).get()
+        customerRepository.delete(customerToDelete)
     }
 }
