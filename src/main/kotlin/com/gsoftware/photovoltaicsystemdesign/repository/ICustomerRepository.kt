@@ -1,10 +1,10 @@
 package com.gsoftware.photovoltaicsystemdesign.repository
 
 import com.gsoftware.photovoltaicsystemdesign.entity.Customer
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 
 /**
  * Repository da entidade Customer
  */
-interface ICustomerRepository: CrudRepository<Customer, Long> {
+interface ICustomerRepository: JpaRepository<Customer, Long> {
 }
