@@ -1,7 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.controller
 
 import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
-import com.gsoftware.photovoltaicsystemdesign.entity.Customer
 import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
 import com.gsoftware.photovoltaicsystemdesign.service.ICustomerService
 import org.springframework.http.ResponseEntity
@@ -28,7 +27,7 @@ class CustomerRestController(var customerService: ICustomerService) {
     @PostMapping
     fun createCustomer(@RequestBody @Valid customerForm: CustomerForm): ResponseEntity<CustomerDTO> {
         val customerDTO = customerService.create(customerForm)
-        return created(URI.create(customerDTO.name)).body(customerDTO)
+        return created(URI.create(customerDTO.name!!)).body(customerDTO)
     }
 
     @GetMapping
@@ -43,9 +42,15 @@ class CustomerRestController(var customerService: ICustomerService) {
         return ok().body(customerDTO)
     }
 
+    @GetMapping("/cpf/{cpf}")
+    fun findCustomerByCpf(@RequestParam cpf: String): ResponseEntity<CustomerDTO> {
+        val customerDTO = customerService.findByCpf(cpf)
+        return ok().body(customerDTO)
+    }
+
     @PutMapping("/{id}")
-    fun updateCustomer(@RequestParam id: Long, @RequestBody @Valid customer: Customer): ResponseEntity<CustomerDTO> {
-        val customerDTO = customerService.update(id,customer)
+    fun updateCustomer(@RequestParam id: Long, @RequestBody @Valid customerForm: CustomerForm): ResponseEntity<CustomerDTO> {
+        val customerDTO = customerService.update(id,customerForm)
         return ok().body(customerDTO)
     }
 

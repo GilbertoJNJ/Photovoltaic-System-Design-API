@@ -1,7 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.service
 
 import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
-import com.gsoftware.photovoltaicsystemdesign.entity.Customer
 import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
 import org.springframework.stereotype.Service
 
@@ -26,9 +25,14 @@ interface ICustomerService {
     fun findById(id: Long): CustomerDTO
 
     /**
+     * Busca cliente por cpf
+     */
+    fun findByCpf(cpf: String): CustomerDTO
+
+    /**
      * Atualiza cliente
      */
-    fun update(id: Long, customer: Customer): CustomerDTO
+    fun update(id: Long, customerForm: CustomerForm): CustomerDTO
 
     /**
      * Deleta cliente

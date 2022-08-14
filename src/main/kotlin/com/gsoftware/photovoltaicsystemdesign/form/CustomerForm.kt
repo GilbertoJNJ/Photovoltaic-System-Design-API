@@ -1,5 +1,9 @@
 package com.gsoftware.photovoltaicsystemdesign.form
 
+import org.hibernate.validator.constraints.br.CPF
+import javax.validation.constraints.Email
+import javax.validation.constraints.NotBlank
+
 /**
  * Formulário para cadastrar os dados do cliente
  *
@@ -11,12 +15,24 @@ package com.gsoftware.photovoltaicsystemdesign.form
  * @param status Identifica se o cliente está ativo
  */
 class CustomerForm(
-    val name: String? = null,
-    val cpf: String? = null,
-    val email: String? = null,
+
+    @field:NotBlank
+    val name: String,
+
+    @field:CPF
+    @field:NotBlank
+    val cpf: String,
+
+    @field:Email
+    @field:NotBlank
+    val email: String,
+
     val phones: List<PhoneForm>? = null,
+
     val address: List<AddressForm>? = null,
+
     val status: Status? = null
+
 ) {
     enum class Status {
         ACTIVE,

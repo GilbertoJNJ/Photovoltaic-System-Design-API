@@ -27,7 +27,7 @@ import javax.persistence.CascadeType
 class Customer(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column
     var name: String? = null,
