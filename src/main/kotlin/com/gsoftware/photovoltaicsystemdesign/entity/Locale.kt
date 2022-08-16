@@ -12,7 +12,7 @@ import javax.persistence.Id
  *
  * @param id ID da localização
  * @param lat Latitude
- * @param lon Longitude
+ * @param lng Longitude
  */
 @Entity
 class Locale(
@@ -24,5 +24,5 @@ class Locale(
     val lat: BigDecimal? = null,
 
     @Column
-    val lon: BigDecimal? = null
+    val lng: BigDecimal? = null
 )
