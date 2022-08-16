@@ -7,10 +7,10 @@ import java.math.BigDecimal
 *
 * @param id ID da localização
 * @param lat Latitude
-* @param lon Longitude
+* @param lng Longitude
 */
 class LocaleDTO(
     var id: Long? = null,
     var lat: BigDecimal? = null,
-    var lon: BigDecimal? = null
+    var lng: BigDecimal? = null
 )
