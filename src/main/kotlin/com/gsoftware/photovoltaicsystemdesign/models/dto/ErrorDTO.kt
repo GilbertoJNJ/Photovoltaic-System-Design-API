@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.dto
+package com.gsoftware.photovoltaicsystemdesign.models.dto
 
 /**
  * Modelo de dados para respostas de erro.

@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.form
+package com.gsoftware.photovoltaicsystemdesign.models.form
 
 /**
  * Formulário para cadastrar endereço
@@ -8,7 +8,7 @@ package com.gsoftware.photovoltaicsystemdesign.form
  * @param district Bairro
  * @param city Cidade
  * @param state Estado
- * @param cep Cep
+ * @param zipCode Cep
  * @param country País
  */
 class AddressForm(
@@ -17,7 +17,7 @@ class AddressForm(
     val district: String? = null,
     val city: String? = null,
     val state: String? = null,
-    val cep: String? = null,
+    val zipCode: String? = null,
     val country: String? = null
 )
 

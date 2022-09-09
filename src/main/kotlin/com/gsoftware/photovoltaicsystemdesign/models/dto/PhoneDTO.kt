@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.dto
+package com.gsoftware.photovoltaicsystemdesign.models.dto
 
 /**
  * Classe DTO que exibe o telefone de contato do cliente

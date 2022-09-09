@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.entity
+package com.gsoftware.photovoltaicsystemdesign.models.entity
 
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -18,15 +18,14 @@ import javax.persistence.CascadeType
  * @param district Bairro
  * @param city Cidade
  * @param state Estado
- * @param cep Cep
+ * @param zipCode Cep
  * @param country País
- * @param locale Localização contendo latitude e longitude
  */
 @Entity
 class Address(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+    var id: Long? = null,
 
     @Column
     var street: String? = null,
@@ -44,11 +43,8 @@ class Address(
     var state: String? = null,
 
     @Column
-    var cep: String? = null,
+    var zipCode: String? = null,
 
     @Column
-    var country: String? = null,
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val locale: Locale? = null
+    var country: String? = null
 )

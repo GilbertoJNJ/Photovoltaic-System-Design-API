@@ -1,6 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.repository
 
-import com.gsoftware.photovoltaicsystemdesign.entity.Customer
+import com.gsoftware.photovoltaicsystemdesign.models.entity.Customer
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.Optional
 

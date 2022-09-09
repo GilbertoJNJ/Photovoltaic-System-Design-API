@@ -1,13 +1,15 @@
-package com.gsoftware.photovoltaicsystemdesign.service
+package com.gsoftware.photovoltaicsystemdesign.client
 
-import com.gsoftware.photovoltaicsystemdesign.googleMapsPlatformModel.GoogleMapsPlatformModel
-import com.gsoftware.photovoltaicsystemdesign.googleMapsPlatformModel.Result
+import com.gsoftware.photovoltaicsystemdesign.models.googleMapsPlatformModel.GoogleMapsPlatformModel
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 
+/**
+ * Client do Google Maps Platform
+ */
 @FeignClient(name = "googleMapsPlatform", url = "\${client.google.maps.url}")
-interface IGoogleMapsPlatformService {
+interface IGoogleMapsPlatformClient {
 
     @GetMapping("/json")
     fun getResult(

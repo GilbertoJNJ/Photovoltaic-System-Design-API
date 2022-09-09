@@ -1,8 +1,8 @@
-package com.gsoftware.photovoltaicsystemdesign.mapper
+package com.gsoftware.photovoltaicsystemdesign.models.mapper
 
-import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
-import com.gsoftware.photovoltaicsystemdesign.entity.Customer
-import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
+import com.gsoftware.photovoltaicsystemdesign.models.dto.CustomerDTO
+import com.gsoftware.photovoltaicsystemdesign.models.entity.Customer
+import com.gsoftware.photovoltaicsystemdesign.models.form.CustomerForm
 import org.mapstruct.Mapper
 
 /**

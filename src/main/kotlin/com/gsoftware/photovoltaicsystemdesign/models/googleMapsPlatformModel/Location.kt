@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.googleMapsPlatformModel
+package com.gsoftware.photovoltaicsystemdesign.models.googleMapsPlatformModel
 
 import java.math.BigDecimal
 

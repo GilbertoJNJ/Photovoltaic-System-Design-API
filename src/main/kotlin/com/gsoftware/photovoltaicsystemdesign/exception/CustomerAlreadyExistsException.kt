@@ -1,6 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.exception
 
-import com.gsoftware.photovoltaicsystemdesign.messages.Messages.Error.CUSTOMER_ALREADY_EXISTS
+import com.gsoftware.photovoltaicsystemdesign.models.messages.Messages.Error.CUSTOMER_ALREADY_EXISTS
 import org.springframework.http.HttpStatus
 
 /**

@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.dto
+package com.gsoftware.photovoltaicsystemdesign.models.dto
 
 /**
  * Classe DTO para exibir os dados de endereço do cliente
@@ -9,9 +9,8 @@ package com.gsoftware.photovoltaicsystemdesign.dto
  * @param district Bairro
  * @param city Cidade
  * @param state Estado
- * @param cep Cep
+ * @param zipCode Cep
  * @param country País
- * @param locale Localização contendo latitude e longitude
  */
 class AddressDTO(
     var id: Long? = null,
@@ -20,7 +19,6 @@ class AddressDTO(
     var district: String? = null,
     var city: String? = null,
     var state: String? = null,
-    var cep: String? = null,
-    var country: String? = null,
-    var locale: LocaleDTO? = null
+    var zipCode: String? = null,
+    var country: String? = null
 )

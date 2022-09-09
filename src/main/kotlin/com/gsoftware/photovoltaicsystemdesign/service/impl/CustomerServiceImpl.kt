@@ -1,11 +1,11 @@
 package com.gsoftware.photovoltaicsystemdesign.service.impl
 
-import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
-import com.gsoftware.photovoltaicsystemdesign.entity.Customer
+import com.gsoftware.photovoltaicsystemdesign.models.dto.CustomerDTO
+import com.gsoftware.photovoltaicsystemdesign.models.entity.Customer
 import com.gsoftware.photovoltaicsystemdesign.exception.CustomerAlreadyExistsException
 import com.gsoftware.photovoltaicsystemdesign.exception.CustomerNotFoundException
-import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
-import com.gsoftware.photovoltaicsystemdesign.mapper.CustomerMapper
+import com.gsoftware.photovoltaicsystemdesign.models.form.CustomerForm
+import com.gsoftware.photovoltaicsystemdesign.models.mapper.CustomerMapper
 import com.gsoftware.photovoltaicsystemdesign.repository.ICustomerRepository
 import com.gsoftware.photovoltaicsystemdesign.service.ICustomerService
 import org.springframework.stereotype.Service

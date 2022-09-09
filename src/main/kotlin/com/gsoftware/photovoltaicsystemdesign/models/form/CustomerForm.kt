@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.form
+package com.gsoftware.photovoltaicsystemdesign.models.form
 
 import org.hibernate.validator.constraints.br.CPF
 import javax.validation.constraints.Email

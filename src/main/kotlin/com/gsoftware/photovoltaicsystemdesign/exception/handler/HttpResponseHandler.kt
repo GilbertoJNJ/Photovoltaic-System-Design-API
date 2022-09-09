@@ -1,7 +1,7 @@
 package com.gsoftware.photovoltaicsystemdesign.exception.handler
 
 import com.fasterxml.jackson.databind.JsonMappingException
-import com.gsoftware.photovoltaicsystemdesign.dto.ErrorDTO
+import com.gsoftware.photovoltaicsystemdesign.models.dto.ErrorDTO
 import com.gsoftware.photovoltaicsystemdesign.exception.HttpException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus

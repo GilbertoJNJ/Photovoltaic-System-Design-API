@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.form
+package com.gsoftware.photovoltaicsystemdesign.models.form
 
 /**
  * Formulário para cadastrar o telefone de contato do cliente

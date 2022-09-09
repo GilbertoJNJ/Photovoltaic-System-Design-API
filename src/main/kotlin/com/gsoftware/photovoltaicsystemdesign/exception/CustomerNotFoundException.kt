@@ -1,6 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.exception
 
-import com.gsoftware.photovoltaicsystemdesign.messages.Messages.Error.CUSTOMER_NOT_FOUND
+import com.gsoftware.photovoltaicsystemdesign.models.messages.Messages.Error.CUSTOMER_NOT_FOUND
 import org.springframework.http.HttpStatus
 
 /**

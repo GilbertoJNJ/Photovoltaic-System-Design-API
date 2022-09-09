@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.dto
+package com.gsoftware.photovoltaicsystemdesign.models.dto
 
 /**
  * Classe DTO para exibir os dados do cliente

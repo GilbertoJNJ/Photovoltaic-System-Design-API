@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.entity
+package com.gsoftware.photovoltaicsystemdesign.models.entity
 
 import javax.persistence.Column
 import javax.persistence.Entity

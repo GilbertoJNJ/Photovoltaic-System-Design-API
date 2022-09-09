@@ -1,6 +1,6 @@
 package com.gsoftware.photovoltaicsystemdesign.repository
 
-import com.gsoftware.photovoltaicsystemdesign.entity.Address
+import com.gsoftware.photovoltaicsystemdesign.models.entity.Address
 import org.springframework.data.repository.CrudRepository
 
 /**

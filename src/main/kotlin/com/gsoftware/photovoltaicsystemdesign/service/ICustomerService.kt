@@ -1,7 +1,7 @@
 package com.gsoftware.photovoltaicsystemdesign.service
 
-import com.gsoftware.photovoltaicsystemdesign.dto.CustomerDTO
-import com.gsoftware.photovoltaicsystemdesign.form.CustomerForm
+import com.gsoftware.photovoltaicsystemdesign.models.dto.CustomerDTO
+import com.gsoftware.photovoltaicsystemdesign.models.form.CustomerForm
 import org.springframework.stereotype.Service
 
 /**

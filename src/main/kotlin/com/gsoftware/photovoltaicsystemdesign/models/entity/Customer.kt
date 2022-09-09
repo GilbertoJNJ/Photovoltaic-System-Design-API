@@ -1,4 +1,4 @@
-package com.gsoftware.photovoltaicsystemdesign.entity
+package com.gsoftware.photovoltaicsystemdesign.models.entity
 
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -42,7 +42,7 @@ class Customer(
     var phones: List<Phone>? = null,
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    var address: List<Address>? = null,
+    var address: MutableList<Address>? = null,
 
     @Column
     @Enumerated(EnumType.ORDINAL)
