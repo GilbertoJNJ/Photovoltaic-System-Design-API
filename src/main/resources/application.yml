@@ -13,6 +13,16 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-
 server:
   port: 8080
+client:
+  nrel:
+    key: nrel-key
+    url: http://nrel.base.url
+  google:
+    maps:
+      credentials:
+        key: google-maps-key
+      url: http://google.maps.base.url
+  viacep:
+    url: http://via.cep.base.url
